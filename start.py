@@ -21,4 +21,4 @@ for i in range(3):
     print("Training accuracy for classifier {} : ".format(i) + str(utils.compute_val_accuracy(SVMC[i], VD.X[i]['train'], VD.Y[i]['train'])))
     print("Validation accuracy for classifier {} : ".format(i) +  str(utils.compute_val_accuracy(SVMC[i], VD.X[i]['val'], VD.Y[i]['val'])))
 
-utils.generate_submission_file(SVMC, path, n_grams_list, submission_filename = 'submission.csv')
+utils.generate_submission_file(SVMC, path, n_grams_list, submission_filename = 'Yte.csv')
