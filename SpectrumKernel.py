@@ -11,7 +11,7 @@ class SpectrumKernel() :
     def __init__(self, datafile, list_k):
         self.list_k = list_k
         self.datafile = datafile
-        self.vectorization = self.special_vectorization(datafile, list_k)
+        self.vectorization = self.special_vectorization()
     
     def gramizer(self, sequence, k=3): # Takes a sequence, returns the dictionary of its k-grams
         assert len(sequence)>=k, "Sequence is shorter than the window"
@@ -59,8 +59,8 @@ class SpectrumKernel() :
             index+=1
         return output
 
-    def special_vectorization (self, datafile, list_k, in_dict=False) :
+    def special_vectorization (self, in_dict=False) :
         tables = []
-        for number in list_k:
-            tables.append(self.vec_to_table(self.to_vect(datafile, number, in_dict)))
+        for number in self.list_k:
+            tables.append(self.vec_to_table(self.to_vect(self.datafile, number, in_dict)))
         return np.hstack(tables)
