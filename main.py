@@ -6,7 +6,11 @@ import utils
 
 path = 'data/'
 
-VD = VectorizedDataset(SpectrumKernel, path, [4,3,2])
+Kernel = SpectrumKernel
+
+n_grams_list = [4,3,2]
+
+VD = VectorizedDataset(Kernel, path, n_grams_list)
 
 SVMC = {}
 Cs = [0.9, 1.4, 1.2]
@@ -16,3 +20,5 @@ for i in range(3):
     print("fit done for training {}".format(i))
     print("Training accuracy for classifier {} : ".format(i) + str(utils.compute_val_accuracy(SVMC[i], VD.X[i]['train'], VD.Y[i]['train'])))
     print("Validation accuracy for classifier {} : ".format(i) +  str(utils.compute_val_accuracy(SVMC[i], VD.X[i]['val'], VD.Y[i]['val'])))
+
+utils.generate_submission_file(SVMC, path, n_grams_list, submission_filename = 'submission.csv')
