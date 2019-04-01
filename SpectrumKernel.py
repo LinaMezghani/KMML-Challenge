@@ -2,14 +2,6 @@ import itertools
 import pandas as pd
 import numpy as np
 
-gapped = False 
-nucleotides =["A", "T","G", "C"]
-nucleotide_gaps = dict()
-for i in range(4):
-    for j in range(4): 
-        nucleotide_gaps[nucleotides[i]+ nucleotides[j]+"2"]=i*4+j
-        nucleotide_gaps[nucleotides[i]+ nucleotides[j]+"3"]=16 +i*4+j
-
 
 class SpectrumKernel() :
     """Parameters :

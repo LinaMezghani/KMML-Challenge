@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-gapped = False 
+gapped = True 
 nucleotides =["A", "T","G", "C"]
 nucleotide_gaps = dict()
 for i in range(4):
